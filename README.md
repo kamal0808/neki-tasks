@@ -4,6 +4,7 @@ Neki's public project repo. Neki is how every TOPC project (Ideato, Founderbot a
 
 - [Issues](https://github.com/kamal0808/neki-tasks/issues): open tasks. Each issue is one task, and its `neki:N` label is the Neki it earns.
 - [`LEDGER.md`](LEDGER.md): who has earned what on Neki.
+- [`RATE_CARD.md`](RATE_CARD.md): the anchor prices every task on every TOPC project is priced against.
 
 What Neki means for the person earning it: https://www.ideato.social/neki
 
