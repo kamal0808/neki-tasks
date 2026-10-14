@@ -1,0 +1,30 @@
+name: Accept tasks closed as completed
+
+# Merging a PR accepts the tasks it closes (Kamal, 2026-10-14). A task issue closed
+# as "completed" by the repo owner, by a merged PR's closing keyword or by hand,
+# gets the `accepted` label. Closed as "not planned" means rejected: no label.
+on:
+  issues:
+    types: [closed]
+
+permissions:
+  issues: write
+
+jobs:
+  accept:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const names = issue.labels.map((l) => l.name);
+            if (!names.includes('task') || names.includes('accepted')) return;
+            if (issue.state_reason !== 'completed') return;
+            if (context.payload.sender.login !== context.repo.owner) return;
+            await github.rest.issues.addLabels({ ...context.repo, issue_number: issue.number, labels: ['accepted'] });
+            await github.rest.issues.createComment({
+              ...context.repo,
+              issue_number: issue.number,
+              body: 'Accepted: closed as completed by the owner (a merged PR or by hand). Add the ledger rows for this task.',
+            });
