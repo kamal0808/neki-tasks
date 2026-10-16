@@ -22,14 +22,17 @@ jobs:
           script: |
             const issue = context.payload.issue;
             const names = issue.labels.map((l) => l.name);
-            if (!names.includes('task') || names.includes('accepted')) return;
+            // An `accepted` label put on by hand doesn't stop the rows; the ledger check below stops duplicates.
+            if (!names.includes('task')) return;
             if (issue.state_reason !== 'completed') return;
             const sender = context.payload.sender.login;
             if (sender !== context.repo.owner) {
               const { data } = await github.rest.repos.getCollaboratorPermissionLevel({ ...context.repo, username: sender });
               if (data.permission !== 'admin') return;
             }
-            await github.rest.issues.addLabels({ ...context.repo, issue_number: issue.number, labels: ['accepted'] });
+            if (!names.includes('accepted')) {
+              await github.rest.issues.addLabels({ ...context.repo, issue_number: issue.number, labels: ['accepted'] });
+            }
 
             const KAMAL = 'kamal0808';
             const nameOf = async (login, work) => {
