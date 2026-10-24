@@ -12,6 +12,8 @@ The founding work on Neki moves here from TOPC's ledger first, so later rows are
 | 2 | 2026-10-10 | Inas | Coined the name Neki, August 2024. Moved from TOPC's ledger (TOPC rows 2 and 22) | 1,000 | provisional | https://github.com/kamal0808/neki-tasks/issues/1 |
 | 3 | 2026-10-16 | Kamal Khatwani | Idea (1%) for #7: Record the backer claim in NEKI.md: public backers of the pot, money never buys Neki | 8 | provisional | https://github.com/topc-social/neki-tasks/issues/7 |
 | 4 | 2026-10-16 | Kamal Khatwani (via Claude) | Work (99%) on #7: Record the backer claim in NEKI.md: public backers of the pot, money never buys Neki | 792 | provisional | https://github.com/kamal0808/topc/pull/27 |
+| 5 | 2026-10-25 | Kamal Khatwani | Idea (1%) for #14: Record server pricing and object-to-approve rules in NEKI.md | 8 | provisional | https://github.com/kamal0808/topc/pull/45 |
+| 6 | 2026-10-25 | Kamal Khatwani | Work (99%) on #14: Record server pricing and object-to-approve rules in NEKI.md | 792 | provisional | https://github.com/kamal0808/topc/pull/45 |
 
 ## Row 1 breakdown (rate card v2, 2026-10-10)
 
